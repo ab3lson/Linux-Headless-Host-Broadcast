@@ -1,0 +1,14 @@
+[Unit]
+Description=Broadcast IP address over bluetooth
+Wants = network-online.target
+After = network.target network-online.target
+
+[Service]
+Type=oneshot
+User=pi
+WorkingDirectory=/home/pi
+ExecStart=sleep 10s
+ExecStart=python /home/pi/broadcast-ip.py
+
+[Install]
+WantedBy=multi-user.target
